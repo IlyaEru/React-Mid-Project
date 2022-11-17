@@ -48,27 +48,43 @@ export default function Todos({
     <StyledTodos>
       {isAddingNewTodo ? (
         <>
-          <header>
+          <header className="todos-header">
             <h2>New Todo - {userName}</h2>
           </header>
-          <form>
-            <label htmlFor={`${todosData[0].userId}-new-todo__title`}>
-              Title :
-            </label>
-            <input
-              onChange={(e) => setNewTodoTitle(e.target.value)}
-              type="text"
-              id={`${todosData[0].userId}-new-todo__title`}
-            />
-            <button onClick={handleNewTodoCancel}>Cancel</button>
-            <button onClick={handleNewTodoAdd}>Add</button>
+          <form className="new-todo__form">
+            <div className="new-todo__form-input">
+              <label htmlFor={`${todosData[0].userId}-new-todo__title`}>
+                Title :
+              </label>
+              <input
+                onChange={(e) => setNewTodoTitle(e.target.value)}
+                type="text"
+                id={`${todosData[0].userId}-new-todo__title`}
+              />
+            </div>
+            <div className="new-todo__form-btns">
+              <button
+                className="btn new-todo-cancel-btn"
+                onClick={handleNewTodoCancel}
+              >
+                Cancel
+              </button>
+              <button
+                className="btn new-todo-add-btn"
+                onClick={handleNewTodoAdd}
+              >
+                Add
+              </button>
+            </div>
           </form>
         </>
       ) : (
         <>
-          <header>
+          <header className="todos-header">
             <h2>Todos - {userName}</h2>
-            <button onClick={() => setIsAddingNewTodo(true)}>Add</button>
+            <button className="btn" onClick={() => setIsAddingNewTodo(true)}>
+              Add
+            </button>
           </header>
           <ul>
             {todosData.map((todo) => (

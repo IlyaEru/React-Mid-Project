@@ -15,17 +15,24 @@ export default function TodoView({
 }: TodoViewProps) {
   return (
     <StyledTodoView>
-      Title: {title} <br />
-      Completed: {completed.toString()} <br />
-      {!completed && (
-        <button
-          onClick={() => {
-            handleTodoComplete(id);
-          }}
-        >
-          Mark Completed
-        </button>
-      )}
+      <div className="todo-view__content">
+        <span className="todo-view__label">Title:</span>
+        {title} <br />
+        <span className="todo-view__label">Completed:</span>{' '}
+        {completed.toString()}
+      </div>
+      <div className="todo-view__complete-btn">
+        {!completed && (
+          <button
+            className="btn"
+            onClick={() => {
+              handleTodoComplete(id);
+            }}
+          >
+            Mark Completed
+          </button>
+        )}
+      </div>
     </StyledTodoView>
   );
 }

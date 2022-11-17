@@ -55,7 +55,6 @@ export default function Main() {
   };
 
   const handleUserUpdate = (updatedUser: User) => {
-    console.log(updatedUser);
     setOriginalUsers([
       ...originalUsers.filter((user) => user.id !== updatedUser.id),
       updatedUser,
@@ -90,38 +89,41 @@ export default function Main() {
     });
   };
 
+  function renderAddNewUser() {
+    if (!isAddingNewUser) {
+      return null;
+    }
+    return (
+      <NewUser
+        lastUserId={users.sort((userA, userB) => userB.id - userA.id)[0].id}
+        handleAddUser={handleAddUser}
+        setIsAddingNewUser={setIsAddingNewUser}
+      />
+    );
+  }
+
+  if (isLoading) {
+    return <BeatLoader className="main__spinner" size={30} color="#36d7b7" />;
+  }
+
   return (
     <StyledMain>
-      {isLoading ? (
-        <BeatLoader color="#36d7b7" />
-      ) : (
-        <>
-          <UserSearch
-            setIsAddingNewUser={setIsAddingNewUser}
-            handleUsersSearch={handleUsersSearch}
-          />
-          {isAddingNewUser && (
-            <NewUser
-              lastUserId={
-                users.sort((userA, userB) => userB.id - userA.id)[0].id
-              }
-              handleAddUser={handleAddUser}
-              setIsAddingNewUser={setIsAddingNewUser}
-            />
-          )}
-          <Users
-            handleUserDelete={handleUserDelete}
-            handleUserUpdate={handleUserUpdate}
-            handleTodoComplete={handleTodoComplete}
-            handleAddTodo={handleAddTodo}
-            handleAddPost={handleAddPost}
-            usersData={users}
-            todosData={todos}
-            postsData={posts}
-            isAddingNewUser={isAddingNewUser}
-          />
-        </>
-      )}
+      <UserSearch
+        setIsAddingNewUser={setIsAddingNewUser}
+        handleUsersSearch={handleUsersSearch}
+      />
+      {renderAddNewUser()}
+      <Users
+        handleUserDelete={handleUserDelete}
+        handleUserUpdate={handleUserUpdate}
+        handleTodoComplete={handleTodoComplete}
+        handleAddTodo={handleAddTodo}
+        handleAddPost={handleAddPost}
+        usersData={users}
+        todosData={todos}
+        postsData={posts}
+        isAddingNewUser={isAddingNewUser}
+      />
     </StyledMain>
   );
 }

@@ -49,108 +49,125 @@ export default function UserView({
         isSelected={isSelected}
         isUncompletedTodo={isUncompletedTodo}
       >
-        <label
-          onClick={() => {
-            setIsSelected(!isSelected);
-          }}
-          htmlFor={`${user.id}-user-id`}
-        >
-          ID:
-        </label>{' '}
-        {user.id} <br />
-        <label htmlFor={`${user.id}-name-input`}>Name:</label>{' '}
-        <input
-          onChange={(e) =>
-            setUser({
-              ...user,
-              name: e.target.value,
-            })
-          }
-          id={`${user.id}-name-input`}
-          type="text"
-          value={user.name}
-        />{' '}
-        <br />
-        <label htmlFor={`${user.id}-email-input`}>Email:</label>{' '}
-        <input
-          onChange={(e) =>
-            setUser({
-              ...user,
-              email: e.target.value,
-            })
-          }
-          id={`${user.id}-email-input`}
-          type="text"
-          value={user.email}
-        />{' '}
-        <br />
+        <div className="user-view__input-field">
+          <label
+            className="user-view__id-label"
+            onClick={() => {
+              setIsSelected(!isSelected);
+            }}
+            htmlFor={`${user.id}-user-id`}
+          >
+            ID:
+          </label>{' '}
+          {user.id}
+        </div>
+        <div className="user-view__input-field">
+          <label htmlFor={`${user.id}-name-input`}>Name:</label>{' '}
+          <input
+            onChange={(e) =>
+              setUser({
+                ...user,
+                name: e.target.value,
+              })
+            }
+            id={`${user.id}-name-input`}
+            type="text"
+            value={user.name}
+          />{' '}
+        </div>
+        <div className="user-view__input-field">
+          <label htmlFor={`${user.id}-email-input`}>Email:</label>{' '}
+          <input
+            onChange={(e) =>
+              setUser({
+                ...user,
+                email: e.target.value,
+              })
+            }
+            id={`${user.id}-email-input`}
+            type="text"
+            value={user.email}
+          />{' '}
+        </div>
         {isShowOtherData && (
           <section className="other-data">
-            <label htmlFor={`${user.id}-street-input`}>Street:</label>{' '}
-            <input
-              onChange={(e) =>
-                setUser({
-                  ...user,
-                  address: {
-                    ...user.address,
-                    street: e.target.value,
-                  },
-                })
-              }
-              id={`${user.id}-street-input`}
-              type="text"
-              value={user.address.street}
-            />{' '}
-            <br />
-            <label htmlFor={`${user.id}-city-input`}>City:</label>{' '}
-            <input
-              id={`${user.id}-city-input`}
-              type="text"
-              value={user.address.city}
-              onChange={(e) =>
-                setUser({
-                  ...user,
-                  address: {
-                    ...user.address,
-                    city: e.target.value,
-                  },
-                })
-              }
-            />{' '}
-            <br />
-            <label htmlFor={`${user.id}-zip-code-input`}>Zip Code:</label>{' '}
-            <input
-              id={`${user.id}-zip-code-input`}
-              type="text"
-              value={user.address.zipcode}
-              onChange={(e) =>
-                setUser({
-                  ...user,
-                  address: {
-                    ...user.address,
-                    zipcode: e.target.value,
-                  },
-                })
-              }
-            />{' '}
-            <br />
+            <div className="user-view__input-field">
+              <label htmlFor={`${user.id}-street-input`}>Street:</label>{' '}
+              <input
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    address: {
+                      ...user.address,
+                      street: e.target.value,
+                    },
+                  })
+                }
+                id={`${user.id}-street-input`}
+                type="text"
+                value={user.address.street}
+              />{' '}
+            </div>
+            <div className="user-view__input-field">
+              <label htmlFor={`${user.id}-city-input`}>City:</label>{' '}
+              <input
+                id={`${user.id}-city-input`}
+                type="text"
+                value={user.address.city}
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    address: {
+                      ...user.address,
+                      city: e.target.value,
+                    },
+                  })
+                }
+              />{' '}
+            </div>
+            <div className="user-view__input-field">
+              <label htmlFor={`${user.id}-zip-code-input`}>Zip Code:</label>{' '}
+              <input
+                id={`${user.id}-zip-code-input`}
+                type="text"
+                value={user.address.zipcode}
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    address: {
+                      ...user.address,
+                      zipcode: e.target.value,
+                    },
+                  })
+                }
+              />{' '}
+            </div>
           </section>
         )}
-        <button
-          onClick={() => {
-            setIsShowOtherData(!isShowOtherData);
-          }}
-        >
-          {isShowOtherData ? 'Hide Other Data' : 'Show Other Data'}
-        </button>
-        <button onClick={() => handleUserUpdate(user)}>Update</button>
-        <button
-          onClick={() => {
-            handleUserDelete(user.id);
-          }}
-        >
-          Delete
-        </button>
+        <div className="user-view__btn-group">
+          <button
+            className="btn user-view__data-btn"
+            onClick={() => {
+              setIsShowOtherData(!isShowOtherData);
+            }}
+          >
+            {isShowOtherData ? 'Hide Other Data' : 'Show Other Data'}
+          </button>
+          <button
+            className="btn user-view__update-btn"
+            onClick={() => handleUserUpdate(user)}
+          >
+            Update
+          </button>
+          <button
+            className="btn user-view__delete-btn"
+            onClick={() => {
+              handleUserDelete(user.id);
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </StyledUserView>
       {isSelected && !isAddingNewUser && (
         <>

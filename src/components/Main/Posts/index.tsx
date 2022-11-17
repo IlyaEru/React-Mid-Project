@@ -49,35 +49,53 @@ export default function Posts({
     <StyledPosts>
       {isAddingNewPost ? (
         <>
-          <header>
+          <header className="posts-header">
             <h2>New Post - {userName}</h2>
           </header>
-          <form>
-            <label htmlFor={`${postsData[0].userId}-new-post__title`}>
-              Title :
-            </label>
-            <input
-              onChange={(e) => setNewPostTitle(e.target.value)}
-              type="text"
-              id={`${postsData[0].userId}-new-post__title`}
-            />
-            <label htmlFor={`${postsData[0].userId}-new-post__body`}>
-              Body :
-            </label>
-            <input
-              onChange={(e) => setNewPostBody(e.target.value)}
-              type="text"
-              id={`${postsData[0].userId}-new-post__body`}
-            />
-            <button onClick={handleNewPostCancel}>Cancel</button>
-            <button onClick={handleNewPostAdd}>Add</button>
+          <form className="new-post__form">
+            <div className="new-post__form-input">
+              <label htmlFor={`${postsData[0].userId}-new-post__title`}>
+                Title :
+              </label>
+              <input
+                onChange={(e) => setNewPostTitle(e.target.value)}
+                type="text"
+                id={`${postsData[0].userId}-new-post__title`}
+              />
+            </div>
+            <div className="new-post__form-input">
+              <label htmlFor={`${postsData[0].userId}-new-post__body`}>
+                Body :
+              </label>
+              <input
+                onChange={(e) => setNewPostBody(e.target.value)}
+                type="text"
+                id={`${postsData[0].userId}-new-post__body`}
+              />
+            </div>
+            <div className="new-post__form-btns">
+              <button
+                className="btn new-post-cancel-btn"
+                onClick={handleNewPostCancel}
+              >
+                Cancel
+              </button>
+              <button
+                className="btn new-post-add-btn"
+                onClick={handleNewPostAdd}
+              >
+                Add
+              </button>
+            </div>
           </form>
         </>
       ) : (
         <>
-          <header>
+          <header className="posts-header">
             <h2>Posts - {userName}</h2>
-            <button onClick={() => setIsAddingNewPost(true)}>Add</button>
+            <button className="btn" onClick={() => setIsAddingNewPost(true)}>
+              Add
+            </button>
           </header>
           <ul>
             {postsData.map((post) => (

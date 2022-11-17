@@ -28,7 +28,7 @@ export default function Users({
 }: Props) {
   return (
     <StyledUsers>
-      <ul>
+      <ul className="users-list">
         {usersData
           .sort((a, b) => a.id - b.id)
           .map((userData) => (

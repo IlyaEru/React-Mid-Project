@@ -24,11 +24,11 @@ export default createGlobalStyle`
     margin: 0;
     -webkit-font-smoothing: auto;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    font-family:  roboto,-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
       sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
   body {
-
+    font-size: calc(12px + 1vw);
     box-sizing: border-box;
     width: 100%;
     min-height: 100vh;
@@ -39,5 +39,13 @@ export default createGlobalStyle`
    #root {
     height: 100vh;
     width: 100%;
+  }
+  .btn{
+  border-radius: 4px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   }
 `;
