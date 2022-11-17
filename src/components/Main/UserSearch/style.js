@@ -5,11 +5,16 @@ display: flex;
 align-items: center;
 margin: 1rem;
 justify-content: center;
+    label {
+    font-size: 1.5rem;
+}
 .user-search__input{
-  width: 20rem;
+
+width: 20rem;
 display: flex;
 align-items: center;
 input{
+
   flex: 1;
   background: transparent;
   border: .4px solid ${props => props.theme.color.silver};
