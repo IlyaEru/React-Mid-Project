@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-Mid-Project/static/css/main.c4c2cd68.css",
-    "main.js": "/React-Mid-Project/static/js/main.9616ca67.js",
+    "main.js": "/React-Mid-Project/static/js/main.92e49aac.js",
     "static/media/rubik-latin-700.woff": "/React-Mid-Project/static/media/rubik-latin-700.7b2f041147b2f9e2a935.woff",
     "static/media/rubik-latin-500.woff": "/React-Mid-Project/static/media/rubik-latin-500.dffa81df1b4c0aa04e6b.woff",
     "static/media/rubik-latin-600.woff": "/React-Mid-Project/static/media/rubik-latin-600.5e6208a9c17c0002601b.woff",
@@ -57,10 +57,10 @@
     "static/media/github.svg": "/React-Mid-Project/static/media/github.fc0ffe042a9582d2a394e1c609baa9f2.svg",
     "index.html": "/React-Mid-Project/index.html",
     "main.c4c2cd68.css.map": "/React-Mid-Project/static/css/main.c4c2cd68.css.map",
-    "main.9616ca67.js.map": "/React-Mid-Project/static/js/main.9616ca67.js.map"
+    "main.92e49aac.js.map": "/React-Mid-Project/static/js/main.92e49aac.js.map"
   },
   "entrypoints": [
     "static/css/main.c4c2cd68.css",
-    "static/js/main.9616ca67.js"
+    "static/js/main.92e49aac.js"
   ]
 }
